@@ -1,0 +1,16 @@
+syntax = "proto3";
+package user;
+
+import "user/data.proto";
+
+// 用户服务
+service UserService {
+  // 创建用户
+  rpc CreateUser(CreateUserRequest) returns (CreateUserResponse);
+  
+  // 获取用户
+  rpc GetUser(GetUserRequest) returns (GetUserResponse);
+  
+  // 列出用户
+  rpc ListUsers(ListUsersRequest) returns (ListUsersResponse);
+}

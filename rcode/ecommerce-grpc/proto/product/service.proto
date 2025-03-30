@@ -1,0 +1,16 @@
+syntax = "proto3";
+package product;
+
+import "product/data.proto";
+
+// 产品服务
+service ProductService {
+  // 创建产品
+  rpc CreateProduct(CreateProductRequest) returns (CreateProductResponse);
+  
+  // 获取产品
+  rpc GetProduct(GetProductRequest) returns (GetProductResponse);
+  
+  // 列出产品
+  rpc ListProducts(ListProductsRequest) returns (ListProductsResponse);
+}

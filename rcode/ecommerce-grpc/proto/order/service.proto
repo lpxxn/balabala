@@ -1,0 +1,19 @@
+syntax = "proto3";
+package order;
+
+import "order/data.proto";
+
+// 订单服务
+service OrderService {
+  // 创建订单
+  rpc CreateOrder(CreateOrderRequest) returns (CreateOrderResponse);
+  
+  // 获取订单
+  rpc GetOrder(GetOrderRequest) returns (GetOrderResponse);
+  
+  // 列出用户订单
+  rpc ListUserOrders(ListUserOrdersRequest) returns (ListUserOrdersResponse);
+  
+  // 更新订单状态
+  rpc UpdateOrderStatus(UpdateOrderStatusRequest) returns (UpdateOrderStatusResponse);
+}

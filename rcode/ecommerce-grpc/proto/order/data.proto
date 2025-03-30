@@ -1,0 +1,85 @@
+syntax = "proto3";
+package order;
+
+import "common/types.proto";
+import "product/data.proto";
+import "user/data.proto";
+
+// 订单状态
+enum OrderStatus {
+  ORDER_STATUS_UNSPECIFIED = 0;
+  ORDER_STATUS_CREATED = 1;
+  ORDER_STATUS_PROCESSING = 2;
+  ORDER_STATUS_SHIPPED = 3;
+  ORDER_STATUS_DELIVERED = 4;
+  ORDER_STATUS_CANCELLED = 5;
+}
+
+// 订单项
+message OrderItem {
+  string product_id = 1;
+  string product_name = 2;
+  int32 quantity = 3;
+  common.Money unit_price = 4;
+}
+
+// 订单
+message Order {
+  string id = 1;
+  string user_id = 2;
+  repeated OrderItem items = 3;
+  common.Money total_amount = 4;
+  OrderStatus status = 5;
+  common.Timestamp created_at = 6;
+  common.Timestamp updated_at = 7;
+  common.Address shipping_address = 8;
+}
+
+// 创建订单请求
+message CreateOrderRequest {
+  string user_id = 1;
+  repeated OrderItem items = 2;
+  common.Address shipping_address = 3;
+}
+
+// 创建订单响应
+message CreateOrderResponse {
+  common.Status status = 1;
+  Order order = 2;
+}
+
+// 获取订单请求
+message GetOrderRequest {
+  string order_id = 1;
+}
+
+// 获取订单响应
+message GetOrderResponse {
+  common.Status status = 1;
+  Order order = 2;
+}
+
+// 列出用户订单请求
+message ListUserOrdersRequest {
+  string user_id = 1;
+  common.PaginationRequest pagination = 2;
+}
+
+// 列出用户订单响应
+message ListUserOrdersResponse {
+  common.Status status = 1;
+  repeated Order orders = 2;
+  int32 total_count = 3;
+}
+
+// 更新订单状态请求
+message UpdateOrderStatusRequest {
+  string order_id = 1;
+  OrderStatus status = 2;
+}
+
+// 更新订单状态响应
+message UpdateOrderStatusResponse {
+  common.Status status = 1;
+  Order order = 2;
+}

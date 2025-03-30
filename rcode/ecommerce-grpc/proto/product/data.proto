@@ -1,0 +1,66 @@
+syntax = "proto3";
+package product;
+
+import "common/types.proto";
+
+// 产品类别
+enum Category {
+  CATEGORY_UNSPECIFIED = 0;
+  CATEGORY_ELECTRONICS = 1;
+  CATEGORY_CLOTHING = 2;
+  CATEGORY_BOOKS = 3;
+  CATEGORY_HOME = 4;
+  CATEGORY_SPORTS = 5;
+}
+
+// 产品信息
+message Product {
+  string id = 1;
+  string name = 2;
+  string description = 3;
+  common.Money price = 4;
+  Category category = 5;
+  int32 stock_quantity = 6;
+  common.Timestamp created_at = 7;
+  repeated string image_urls = 8;
+}
+
+// 创建产品请求
+message CreateProductRequest {
+  string name = 1;
+  string description = 2;
+  common.Money price = 3;
+  Category category = 4;
+  int32 stock_quantity = 5;
+  repeated string image_urls = 6;
+}
+
+// 创建产品响应
+message CreateProductResponse {
+  common.Status status = 1;
+  Product product = 2;
+}
+
+// 获取产品请求
+message GetProductRequest {
+  string product_id = 1;
+}
+
+// 获取产品响应
+message GetProductResponse {
+  common.Status status = 1;
+  Product product = 2;
+}
+
+// 列出产品请求
+message ListProductsRequest {
+  common.PaginationRequest pagination = 1;
+  Category category = 2;
+}
+
+// 列出产品响应
+message ListProductsResponse {
+  common.Status status = 1;
+  repeated Product products = 2;
+  int32 total_count = 3;
+}

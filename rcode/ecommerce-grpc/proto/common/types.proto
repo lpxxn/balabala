@@ -1,0 +1,36 @@
+syntax = "proto3";
+package common;
+
+// 通用响应状态
+message Status {
+  int32 code = 1;
+  string message = 2;
+}
+
+// 分页请求
+message PaginationRequest {
+  int32 page = 1;
+  int32 page_size = 2;
+}
+
+// 时间戳
+message Timestamp {
+  int64 seconds = 1;
+  int32 nanos = 2;
+}
+
+// 货币
+message Money {
+  string currency_code = 1;
+  int64 units = 2;
+  int32 nanos = 3;
+}
+
+// 地址
+message Address {
+  string street_address = 1;
+  string city = 2;
+  string state = 3;
+  string country = 4;
+  string zip_code = 5;
+}
