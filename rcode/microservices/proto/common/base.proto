@@ -1,0 +1,20 @@
+syntax = "proto3";
+package common;
+
+// 通用响应状态
+message Status {
+  int32 code = 1;
+  string message = 2;
+}
+
+// 货币金额
+message Money {
+  string currency_code = 1;
+  int64 amount = 2;
+}
+
+// 分页请求
+message PaginationRequest {
+  int32 page = 1;
+  int32 page_size = 2;
+}

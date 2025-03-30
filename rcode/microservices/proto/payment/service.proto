@@ -1,0 +1,20 @@
+syntax = "proto3";
+package payment;
+
+import "payment/model.proto";
+import "common/base.proto";
+
+// 支付服务
+service PaymentService {
+  // 处理支付
+  rpc ProcessPayment(ProcessPaymentRequest) returns (ProcessPaymentResponse);
+}
+
+message ProcessPaymentRequest {
+  PaymentRequest payment_request = 1;
+}
+
+message ProcessPaymentResponse {
+  common.Status status = 1;
+  Payment payment = 2;
+}

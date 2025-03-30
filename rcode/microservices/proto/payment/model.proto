@@ -1,0 +1,38 @@
+syntax = "proto3";
+package payment;
+
+import "common/base.proto";
+import "user/model.proto";  // 导入用户模型
+
+// 支付方式
+enum PaymentMethod {
+  PAYMENT_METHOD_UNSPECIFIED = 0;
+  PAYMENT_METHOD_CREDIT_CARD = 1;
+  PAYMENT_METHOD_BANK_TRANSFER = 2;
+}
+
+// 支付信息
+message Payment {
+  string id = 1;
+  string order_id = 2;
+  common.Money amount = 3;
+  PaymentMethod method = 4;
+  string status = 5;
+}
+
+// 注意：支付服务也定义了一个Address类型，但结构不同
+message Address {  // 与user.Address同名但结构不同
+  string full_address = 1;
+  string recipient_name = 2;
+  string phone_number = 3;
+}
+
+// 支付请求
+message PaymentRequest {
+  string order_id = 1;
+  common.Money amount = 2;
+  PaymentMethod method = 3;
+  string user_id = 4;
+  Address billing_address = 5;  // 使用payment.Address
+  user.Address shipping_address = 6;  // 使用user.Address
+}

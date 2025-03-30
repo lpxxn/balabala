@@ -1,0 +1,18 @@
+syntax = "proto3";
+package product;
+
+import "common/base.proto";
+
+// 产品信息
+message Product {
+  string id = 1;
+  string name = 2;
+  string description = 3;
+  common.Money price = 4;
+}
+
+// 产品类别
+message Category {
+  string id = 1;
+  string name = 2;
+}

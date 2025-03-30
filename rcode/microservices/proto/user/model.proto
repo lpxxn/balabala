@@ -1,0 +1,28 @@
+syntax = "proto3";
+package user;
+
+import "common/base.proto";
+
+// 用户信息
+message User {
+  string id = 1;
+  string email = 2;
+  string name = 3;
+  bool verified = 4;
+}
+
+// 注意：用户服务也定义了一个Address类型
+message Address {
+  string street = 1;
+  string city = 2;
+  string state = 3;
+  string country = 4;
+  string postal_code = 5;
+}
+
+// 用户详细信息
+message UserDetails {
+  User user = 1;
+  Address address = 2;
+  common.Status verification_status = 3;
+}

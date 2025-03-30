@@ -1,0 +1,20 @@
+syntax = "proto3";
+package user;
+
+import "user/model.proto";
+import "common/base.proto";
+
+// 用户服务
+service UserService {
+  // 获取用户信息
+  rpc GetUser(GetUserRequest) returns (GetUserResponse);
+}
+
+message GetUserRequest {
+  string user_id = 1;
+}
+
+message GetUserResponse {
+  common.Status status = 1;
+  UserDetails user_details = 2;
+}
