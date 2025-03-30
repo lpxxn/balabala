@@ -11,7 +11,12 @@ pub mod proto {
             tonic::include_proto!("meals.v1");
         }
     }
-
+    // 导入公共定义
+    pub mod pbmeta {
+        pub mod v1 {
+            tonic::include_proto!("pbmeta.v1");
+        }
+    }
     pub mod baseinfo_pub {
         pub mod v1 {
             tonic::include_proto!("baseinfo.public.v1");
@@ -25,13 +30,6 @@ pub mod proto {
 
             // 重新导出服务客户端，方便使用
             pub use restaurant_service_client::RestaurantServiceClient;
-        }
-    }
-
-    // 导入公共定义
-    pub mod pbmeta {
-        pub mod v1 {
-            tonic::include_proto!("pbmeta.v1");
         }
     }
 }
