@@ -1,0 +1,4 @@
+home: /Users/lipeng
+go path: /Users/lipeng/go
+out dir: /Users/lipeng/myrust/mytarget/debug/build/sentinel-9d0f4f5a858069a0/out
+cargo manifest dir: /Users/lipeng/go/src/github.com/lpxxn/balabala/rcode/sentinel
