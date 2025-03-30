@@ -30,5 +30,28 @@ pub mod proto {
             // 重新导出服务客户端，方便使用
             pub use restaurant_service_client::RestaurantServiceClient;
         }
+
+        pub mod product {
+            pub mod v4 {
+                tonic::include_proto!("kiwi.baseinfo.product.v4");
+            }
+            // ... 其他版本 ...
+            pub mod v5 {
+                tonic::include_proto!("kiwi.baseinfo.product.v5");
+            }
+        }
+
+        pub mod cafeteria {
+            pub mod v4 {
+                tonic::include_proto!("kiwi.baseinfo.cafeteria.v4");
+                // use restaurant_service_client::RestaurantServiceClient as RestaurantServiceClientV4;
+            }
+            pub mod v5 {
+                tonic::include_proto!("kiwi.baseinfo.cafeteria.v5");
+                // use restaurant_service_client::RestaurantServiceClient as RestaurantServiceClientV5;
+                pub use restaurant_push_service_client::RestaurantPushServiceClient as RestaurantPushServiceClientV5;
+                pub use restaurant_service_client::RestaurantServiceClient as RestaurantServiceClientV5;
+            }
+        }
     }
 }

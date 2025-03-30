@@ -4,6 +4,8 @@ use crate::proto::baseinfo::v2::{
     QueryCafeteriaDetailRequest, QueryCafeteriasRequest, QuerySimpleCafeteriasRequest,
     RestaurantServiceClient,
 };
+use crate::proto::baseinfo::v2::{QueryCafeteriasView, SimpleCafeteria};
+use crate::proto::baseinfo_pub::v1::CafeteriaDetail;
 use crate::proto::pbmeta::v1::QueryByIdRequest;
 use std::error::Error;
 use std::time::Duration;
@@ -48,7 +50,11 @@ impl RestaurantClient {
 
         println!("查询成功! 元数据: {:?}", response.meta);
         println!("找到 {} 个食堂:", response.data.len());
-
+        // 打印类型信息
+        println!(
+            "response.data 的类型是: {}",
+            std::any::type_name_of_val(&response.data)
+        );
         for (i, cafeteria) in response.data.iter().enumerate() {
             println!(
                 "{}: ID={}, 名称={}, 雪花ID={}",

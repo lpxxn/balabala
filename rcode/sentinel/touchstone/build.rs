@@ -86,7 +86,10 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
         // proto_root.join("go.planetmeican.com/api-center/protobufs/kiwi/baseinfo/product/v4/product.proto"),
         proto_root.join("go.planetmeican.com/api-center/protobufs/kiwi/baseinfo/cafeteria/v5/data.proto"),
         // proto_root.join("go.planetmeican.com/api-center/protobufs/kiwi/baseinfo/product/v5/product.proto"),
+        proto_root.join("go.planetmeican.com/api-center/protobufs/kiwi/baseinfo/product/v5/menu_calendar.proto",),
         proto_root.join("go.planetmeican.com/api-center/protobufs/kiwi/baseinfo/product/v5/backend/product.proto"),
+        proto_root.join("go.planetmeican.com/api-center/protobufs/kiwi/baseinfo/cafeteria/v4/restaurant.proto"), 
+        proto_root.join("go.planetmeican.com/api-center/protobufs/kiwi/baseinfo/cafeteria/v5/restaurant.proto"),
     ];
 
     // 检查每个proto文件是否存在
@@ -123,6 +126,14 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
         ],
         &include_dirs,
     )?;
+
+    // normal_config.clone().compile_protos(
+    //     &[proto_root.join(
+    //         "go.planetmeican.com/api-center/protobufs/kiwi/baseinfo/product/v5/menu_calendar.proto",
+
+    //     ), proto_root.join("go.planetmeican.com/api-center/protobufs/kiwi/baseinfo/cafeteria/v5/data.proto")],
+    //     &include_dirs,
+    // )?;
     // normal_config.clone().compile_protos(
     //     &[proto_root.join("go.planetmeican.com/nerds/proto/pbmeta/v1/pbmeta.proto")],
     //     &include_dirs,
@@ -137,6 +148,41 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
             )],
             &include_dirs,
         )?;
+
+    //     // // 产品相关 v4
+
+    //     //
+    match  normal_config
+        .clone()
+        .extern_path(".meals.v1", "crate::proto::meals::v1")
+        // .extern_path(".kiwi.baseinfo.product.v4","crate::proto::baseinfo::product::v4",)
+        // 添加类型自动实现
+    .compile_well_known_types(true)
+        .compile_protos(
+            &[
+                proto_root.join("go.planetmeican.com/api-center/protobufs/kiwi/baseinfo/product/v4/menu_calendar.proto"),
+            ],
+            &[proto_root.clone(),
+            proto_root.join("go.planetmeican.com/api-center/protobufs/kiwi/baseinfo/product/v4"),
+            proto_root.join("go.planetmeican.com/api-center/protobufs"),
+        ],
+        ) {
+            Ok(_) => {
+                println!(
+                    "cargo:warning=Successfully compiled: {}",
+                    proto_root.join("go.planetmeican.com/api-center/protobufs/kiwi/baseinfo/product/v4/menu_calendar.proto").display()
+                );
+                writeln!(file, "Successfully compiled: {}", proto_root.join("go.planetmeican.com/api-center/protobufs/kiwi/baseinfo/product/v4/menu_calendar.proto").display())?;
+            }
+            Err(e) => {
+                println!(
+                    "cargo:warning=Failed to compile {}: {}",
+                    proto_root.join("go.planetmeican.com/api-center/protobufs/kiwi/baseinfo/product/v4/menu_calendar.proto").display(),
+                    e
+                );
+                writeln!(file, "Failed to compile {}: {}", proto_root.join("go.planetmeican.com/api-center/protobufs/kiwi/baseinfo/product/v4/menu_calendar.proto").display(), e)?;
+            }
+        }
 
     // 一次性配置并编译所有proto文件
     let mut config = tonic_build::configure()
@@ -163,6 +209,13 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
         )
         .type_attribute(".", "#[derive(serde::Serialize, serde::Deserialize)]");
 
+    // config.clone().compile_protos(
+    //     &[
+    //         proto_root.join("go.planetmeican.com/api-center/protobufs/kiwi/baseinfo/cafeteria/v4/restaurant.proto"),
+    //         proto_root.join("go.planetmeican.com/api-center/protobufs/kiwi/baseinfo/cafeteria/v5/restaurant.proto"),
+    //         ],
+    //     &include_dirs,
+    // )?;
     // 尝试单独编译每个proto文件，以便更好地定位问题
     for proto_file in &proto_files {
         if proto_file.exists() {
