@@ -1,6 +1,6 @@
 home: /Users/lipeng
 go path: /Users/lipeng/go
-out dir: /Users/lipeng/myrust/mytarget/debug/build/touchstone-43fc002cfe4c811b/out
+out dir: /Users/lipeng/myrust/mytarget/debug/build/touchstone-d1a571e1f13a2d7b/out
 cargo manifest dir: /Users/lipeng/go/src/github.com/lpxxn/balabala/rcode/sentinel/touchstone
 Proto file exists: /Users/lipeng/go/src/go.planetmeican.com/kiwi/grpc-proto/v2/baseinfo/baseinfo-v2.proto
 Proto file exists: /Users/lipeng/go/src/go.planetmeican.com/api-center/protobufs/kiwi/baseinfo/cafeteria/v5/data.proto
@@ -15,13 +15,13 @@ Successfully compiled: /Users/lipeng/go/src/go.planetmeican.com/api-center/proto
 Successfully compiled: /Users/lipeng/go/src/go.planetmeican.com/api-center/protobufs/kiwi/baseinfo/product/v5/backend/product.proto
 Successfully compiled: /Users/lipeng/go/src/go.planetmeican.com/api-center/protobufs/kiwi/baseinfo/cafeteria/v4/restaurant.proto
 Successfully compiled: /Users/lipeng/go/src/go.planetmeican.com/api-center/protobufs/kiwi/baseinfo/cafeteria/v5/restaurant.proto
-Generated files in /Users/lipeng/myrust/mytarget/debug/build/touchstone-43fc002cfe4c811b/out:
-  /Users/lipeng/myrust/mytarget/debug/build/touchstone-43fc002cfe4c811b/out/kiwi.baseinfo.product.v4.rs
-  /Users/lipeng/myrust/mytarget/debug/build/touchstone-43fc002cfe4c811b/out/kiwi.baseinfo.product.v5.rs
-  /Users/lipeng/myrust/mytarget/debug/build/touchstone-43fc002cfe4c811b/out/baseinfo.v2.rs
-  /Users/lipeng/myrust/mytarget/debug/build/touchstone-43fc002cfe4c811b/out/pbmeta.v1.rs
-  /Users/lipeng/myrust/mytarget/debug/build/touchstone-43fc002cfe4c811b/out/baseinfo.public.v1.rs
-  /Users/lipeng/myrust/mytarget/debug/build/touchstone-43fc002cfe4c811b/out/kiwi.baseinfo.product.v5.backend.rs
-  /Users/lipeng/myrust/mytarget/debug/build/touchstone-43fc002cfe4c811b/out/kiwi.baseinfo.cafeteria.v4.rs
-  /Users/lipeng/myrust/mytarget/debug/build/touchstone-43fc002cfe4c811b/out/kiwi.baseinfo.cafeteria.v5.rs
-  /Users/lipeng/myrust/mytarget/debug/build/touchstone-43fc002cfe4c811b/out/meals.v1.rs
+Generated files in /Users/lipeng/myrust/mytarget/debug/build/touchstone-d1a571e1f13a2d7b/out:
+  /Users/lipeng/myrust/mytarget/debug/build/touchstone-d1a571e1f13a2d7b/out/kiwi.baseinfo.product.v4.rs
+  /Users/lipeng/myrust/mytarget/debug/build/touchstone-d1a571e1f13a2d7b/out/kiwi.baseinfo.product.v5.rs
+  /Users/lipeng/myrust/mytarget/debug/build/touchstone-d1a571e1f13a2d7b/out/baseinfo.v2.rs
+  /Users/lipeng/myrust/mytarget/debug/build/touchstone-d1a571e1f13a2d7b/out/pbmeta.v1.rs
+  /Users/lipeng/myrust/mytarget/debug/build/touchstone-d1a571e1f13a2d7b/out/baseinfo.public.v1.rs
+  /Users/lipeng/myrust/mytarget/debug/build/touchstone-d1a571e1f13a2d7b/out/kiwi.baseinfo.product.v5.backend.rs
+  /Users/lipeng/myrust/mytarget/debug/build/touchstone-d1a571e1f13a2d7b/out/kiwi.baseinfo.cafeteria.v4.rs
+  /Users/lipeng/myrust/mytarget/debug/build/touchstone-d1a571e1f13a2d7b/out/kiwi.baseinfo.cafeteria.v5.rs
+  /Users/lipeng/myrust/mytarget/debug/build/touchstone-d1a571e1f13a2d7b/out/meals.v1.rs
