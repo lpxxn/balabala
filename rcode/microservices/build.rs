@@ -12,19 +12,19 @@ fn main() -> Result<()> {
         .out_dir("src/pb")
         // 添加这个选项，确保所有类型都被生成
         .compile_well_known_types(true)
-        .extern_path(".common", "crate::pb::common")
-        .extern_path(".user", "crate::pb::user")
-        .extern_path(".product", "crate::pb::product")
-        .extern_path(".payment", "crate::pb::payment")
-        .compile(
+        // .extern_path(".common", "crate::pb::common")
+        // .extern_path(".user", "crate::pb::user")
+        // .extern_path(".product", "crate::pb::product")
+        // .extern_path(".payment", "crate::pb::payment")
+        .compile_protos(
             &[
                 // 包含所有相关的proto文件
-                "proto/common/base.proto",
-                "proto/user/model.proto",
-                "proto/user/service.proto",
-                "proto/product/model.proto",
+                // "proto/common/base.proto",
+                // "proto/user/model.proto",
+                // "proto/product/model.proto",
+                // "proto/payment/model.proto",
                 "proto/product/service.proto",
-                "proto/payment/model.proto",
+                "proto/user/service.proto",
                 "proto/payment/service.proto",
             ],
             &["proto"],

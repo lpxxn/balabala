@@ -26,13 +26,14 @@ fn main() {
         city: "北京".to_string(),
         state: "北京市".to_string(),
         country: "中国".to_string(),
-        zip_code: "100080".to_string(),
+        postal_code: "100080".to_string(),
     };
 
     // 创建一个支付地址
     let billing_address = PaymentAddress {
         full_address: "中国北京市海淀区中关村大街1号 100080".to_string(),
-        type_: "billing".to_string(),
+        recipient_name: "abce".to_string(),
+        phone_number: "12345678901".to_string(),
     };
 
     // 创建金额
