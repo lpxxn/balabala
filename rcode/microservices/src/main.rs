@@ -38,8 +38,7 @@ fn main() {
     // 创建金额
     let amount = Money {
         currency_code: "CNY".to_string(),
-        units: 100,
-        nanos: 500000000, // 0.5元
+        amount: 100_500_000_000, // 100.5元
     };
 
     // 处理订单
